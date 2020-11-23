@@ -1,5 +1,5 @@
 // Write a program to reverse an array or string
-// Iterative way
+// Recursive way
 
 #include <bits/stdc++.h>
 #define int long long
@@ -19,12 +19,14 @@ int gcd(int a, int b)
 int lcm(int a, int b) { return (a * b) / gcd(a, b); }
 using namespace std;
 
-void reverse_array(int arr[], int n)
+void reverse_array(int arr[], int l, int r)
 {
-  for (int i = 0, j = n - 1; i < j; i++, j--)
+  if (l >= r)
   {
-    swap(arr[i], arr[j]);
+    return;
   }
+  swap(arr[l], arr[r]);
+  reverse_array(arr, l + 1, r - 1);
 }
 
 void print_array(int arr[], int n)
@@ -48,7 +50,7 @@ int32_t main()
   cout << "Original array: ";
   print_array(arr, n);
 
-  reverse_array(arr, n);
+  reverse_array(arr, 0, n - 1);
 
   cout << "Revered array: ";
   print_array(arr, n);
