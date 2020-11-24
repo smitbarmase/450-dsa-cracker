@@ -1,5 +1,6 @@
 // Kth Smallest/Largest Element in Unsorted Array
-// By Sorting
+// By Min-Heap
+// Can also be implemented using Max-Heap with K elements.
 
 #include <bits/stdc++.h>
 #define int long long
@@ -21,8 +22,11 @@ using namespace std;
 
 int kth_smallest(int arr[], int n, int k)
 {
-  sort(arr, arr + n);
-  return arr[k - 1];
+  priority_queue<int, vector<int>, greater<int>> pq;
+  make_heap(arr, arr + n);
+  f(i, 0, n) pq.push(arr[i]); // N * logN
+  f(i, 0, k - 1) pq.pop();    // k * 2logN
+  return pq.top();
 }
 
 int32_t main()
@@ -37,6 +41,8 @@ int32_t main()
   f(i, 0, n) cin >> arr[i];
 
   cout << kth_smallest(arr, n, k);
+
+  // O(NlogN + 2KlogN)
 
   return 0;
 }
