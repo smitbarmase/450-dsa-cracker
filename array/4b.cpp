@@ -1,6 +1,6 @@
 // Sort an array of 0s, 1s and 2s without sorting algorithm.
-// Counting method
-// O(2N)
+// 3-way partitioning method or Dutch National Flag Algorithm
+// O(N)
 
 #include <bits/stdc++.h>
 #define int long long
@@ -22,33 +22,16 @@ using namespace std;
 
 void sort_array(int arr[], int n)
 {
-  int count_0 = 0;
-  int count_1 = 0;
-
-  f(i, 0, n)
+  // 0 to low (zeros), low to mid (ones), mid to high (unknown), high to n (twos)
+  int low = 0, mid = 0, high = n - 1;
+  while (mid <= high)
   {
-    if (arr[i] == 0)
-      count_0++;
-    else if (arr[i] == 1)
-      count_1++;
-  }
-
-  f(i, 0, n)
-  {
-    if (count_0)
-    {
-      arr[i] = 0;
-      count_0--;
-    }
-    else if (count_1)
-    {
-      arr[i] = 1;
-      count_1--;
-    }
+    if (arr[mid] == 0)
+      swap(arr[low++], arr[mid++]);
+    else if (arr[mid] == 1)
+      mid++;
     else
-    {
-      arr[i] = 2;
-    }
+      swap(arr[mid], arr[high--]);
   }
 }
 
