@@ -15,7 +15,7 @@ _\* denotes implementation is incomplete_
   | 5   | Move all the negative elements to one side of the array                                              | 3                  |
   | 6   | Find the Union and Intersection of the two sorted arrays.                                            | 1 + 1\*            |
   | 7   | Write a program to cyclically rotate an array by one.                                                | 1                  |
-  | 8   | Find Largest sum contiguous subarray                                                                 |                    |
-  | 9   | Minimise the maximum difference between heights                                                      |                    |
+  | 8   | Find Largest sum contiguous subarray                                                                 | 1                  |
+  | 9   | Minimise the maximum difference between heights                                                      | 1                  |
   | 10  | Minimum no. of Jumps to reach end of an array                                                        |                    |
   | 11  | Find duplicate in an array of N+1 Integers                                                           |                    |
